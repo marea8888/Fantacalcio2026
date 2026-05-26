@@ -308,7 +308,7 @@ def target_per_ruolo_dynamic(team: Squadra) -> Dict[str, int]:
     - Budget residuo redistribuito tra reparti NON completi
       in proporzione ai pesi originali (10/20/30/40) normalizzati.
     """
-    perc = st.session_state.settings.get("spending_targets", {"P": 0.10, "D": 0.20, "C": 0.30, "A": 0.40})
+    perc = st.session_state.settings.get("spending_targets", {"P": 0.08, "D": 0.18, "C": 0.28, "A": 0.46})
     spent = spesa_per_ruolo(team)
     quota = st.session_state.settings["quote_rosa"]
     completed = [r for r in RUOLI if len(team.rosa[r]) >= quota[r]]
