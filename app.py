@@ -7,16 +7,18 @@ from bs4 import BeautifulSoup
 from dataclasses import dataclass, field, asdict
 from typing import List, Dict
 from pathlib import Path
-
+from PIL import Image
 import pandas as pd
 import streamlit as st
 
 # ===============================
 # CONFIG APP
 # ===============================
+page_icon = Image.open("fantasy_football_emblem_with_crown.png")
+
 st.set_page_config(
     page_title="Fanta Rmonia 2026/2027",
-    page_icon="⚽",
+    page_icon=page_icon,
     layout="wide",
     initial_sidebar_state="expanded",
 )
