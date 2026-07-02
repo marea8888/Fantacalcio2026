@@ -15,7 +15,7 @@ import streamlit as st
 # CONFIG APP
 # ===============================
 st.set_page_config(
-    page_title="Fantacalcio 2026/2027",
+    page_title="Fanta Rmonia 2026/2027",
     page_icon="⚽",
     layout="wide",
     initial_sidebar_state="expanded",
