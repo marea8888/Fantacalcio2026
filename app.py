@@ -14,7 +14,7 @@ import streamlit as st
 # ===============================
 # CONFIG APP
 # ===============================
-page_icon = Image.open("fantasy_football_emblem_with_crown.png")
+page_icon = Image.open("ChatGPT Image Jul 2, 2026, 02_54_23 PM.png")
 
 st.set_page_config(
     page_title="Fanta Rmonia 2026/2027",
