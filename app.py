@@ -875,7 +875,7 @@ with tab_riepilogo:
         buf = io.StringIO()
         pd.DataFrame(rows, columns=["squadra","id_giocatore","crediti"]).to_csv(buf, index=False, sep=';')
         st.download_button(
-            "⬇️ Scarica CSV – formato: squadra;id_giocatore;crediti",
+            "⬇️ Scarica CSV",
             data=buf.getvalue().encode("utf-8"),
             file_name="rose_leghefantacalcio.csv",
             mime="text/csv"
