@@ -781,8 +781,6 @@ with st.sidebar:
     idx = min(idx, len(st.session_state.squadre)-1)
     my_team = st.session_state.squadre[idx] if st.session_state.squadre else None
 
-    st.title(f"📋 {my_team.nome if my_team else 'Rosa'}")
-
     if my_team:
         st.metric("Crediti rimasti", crediti_rimasti(my_team))
         st.markdown("---")
