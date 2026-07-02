@@ -772,6 +772,11 @@ apply_auto_refresh()
 # UI: SIDEBAR – RIEPILOGO (solo Terzetto Scherzetto)
 # ===============================
 with st.sidebar:
+    st.image(
+        "terzetto_scherzetto.png",
+        use_container_width=True
+    )
+
     idx = st.session_state.get("user_team_idx", 0)
     idx = min(idx, len(st.session_state.squadre)-1)
     my_team = st.session_state.squadre[idx] if st.session_state.squadre else None
@@ -782,18 +787,34 @@ with st.sidebar:
         st.metric("Crediti rimasti", crediti_rimasti(my_team))
         st.markdown("---")
         spent_map = spesa_per_ruolo(my_team)
+
         # 🔁 usa TARGET DINAMICI
         targ_map = target_per_ruolo_dynamic(my_team)
-        for r, label in [("P","Portieri"),("D","Difensori"),("C","Centrocampisti"),("A","Attaccanti")]:
+
+        for r, label in [
+            ("P", "Portieri"),
+            ("D", "Difensori"),
+            ("C", "Centrocampisti"),
+            ("A", "Attaccanti")
+        ]:
             count = len(my_team.rosa[r])
             quota = st.session_state.settings['quote_rosa'][r]
             s = spent_map.get(r, 0)
             t = max(targ_map.get(r, 0), 1)
             ratio = s / t
-            pct_int = int(round(100*ratio))
-            pct_color = ratio_color_hex(min(ratio,1.0))
-            badge_html = f" <span style='background:#DC2626;color:#fff;border-radius:12px;padding:2px 6px;margin-left:6px;'>+{s - t}</span>" if s > t else ""
-            header_html = f"<strong>{label} ({count}/{quota}) — {s}/{t} (<span style='color:{pct_color}'>{pct_int}%</span>)</strong>{badge_html}"
+            pct_int = int(round(100 * ratio))
+            pct_color = ratio_color_hex(min(ratio, 1.0))
+
+            badge_html = (
+                f" <span style='background:#DC2626;color:#fff;border-radius:12px;"
+                f"padding:2px 6px;margin-left:6px;'>+{s - t}</span>"
+                if s > t else ""
+            )
+
+            header_html = (
+                f"<strong>{label} ({count}/{quota}) — {s}/{t} "
+                f"(<span style='color:{pct_color}'>{pct_int}%</span>)</strong>{badge_html}"
+            )
 
             items = []
             for g in my_team.rosa[r]:
@@ -802,10 +823,16 @@ with st.sidebar:
                     items.append(f"{g.nome} — Slot: {_slot} ({g.prezzo})")
                 else:
                     items.append(f"{g.nome} ({g.prezzo})")
-            items_html = "<ul style='margin:6px 0 0 18px;padding:0;'>" + "".join(f"<li>{n}</li>" for n in items) + "</ul>" if items else "<em>nessuno</em>"
 
-            bar_color = ratio_color_hex(min(ratio,1.0))
-            width_pct = int(round(min(ratio,1.0)*100))
+            items_html = (
+                "<ul style='margin:6px 0 0 18px;padding:0;'>"
+                + "".join(f"<li>{n}</li>" for n in items)
+                + "</ul>"
+                if items else "<em>nessuno</em>"
+            )
+
+            bar_color = ratio_color_hex(min(ratio, 1.0))
+            width_pct = int(round(min(ratio, 1.0) * 100))
             border_col = "#FCA5A5" if s > t else "#E5E7EB"
             bg_col = "#FFF6F6" if s > t else "transparent"
 
@@ -823,6 +850,7 @@ with st.sidebar:
         st.markdown("---")
         spesi = my_team.budget - crediti_rimasti(my_team)
         st.caption(f"Budget iniziale: {my_team.budget} • Spesi: {spesi}")
+
 
 # ===============================
 # UI: HEADER + TABS IN ALTO
