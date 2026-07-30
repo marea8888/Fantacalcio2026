@@ -773,7 +773,7 @@ apply_auto_refresh()
 # ===============================
 with st.sidebar:
     st.image(
-        "terzetto_scherzetto.png",
+        "ChatGPT Image Jul 30, 2026, 12_35_29 PM.png",
         use_container_width=True
     )
 
