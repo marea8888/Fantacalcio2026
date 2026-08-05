@@ -42,7 +42,7 @@ FILE_ID = "1xh19qAkMpLwB1QziSRUsvkKe98bJtSwR"
 DRIVE_XLSX_URL = f"https://drive.google.com/uc?export=download&id={FILE_ID}"
 
 # Secondo file (Tutti): extra metrics (Qt.A, FVM)
-FILE2_ID = "1e-0iZhQsavd5_G_KM1ePSXzCJgG0Kn-v"
+FILE2_ID = "13XnRYjOcox3FvoHRr7QGFLpSA4YweBmG"
 DRIVE2_XLSX_URL = f"https://drive.google.com/uc?export=download&id={FILE2_ID}"
 SHEET2_NAME = "Tutti"
 
