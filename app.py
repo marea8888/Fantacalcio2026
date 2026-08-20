@@ -37,8 +37,8 @@ SETTINGS = {
     "spending_targets": {"P": 0.08, "D": 0.18, "C": 0.28, "A": 0.46},
 }
 
-# Google Drive: file Excel con i fogli P/D/C/A e colonna "name"
-FILE_ID = "1_FzuvQ9MG022DP4-4lmx34o5zK58ET8j"
+# Google Drive: file Excel con i fogli P/D/C/A e colonna "name FANTACULO"
+FILE_ID = "1QZVvmeJBpykwyCUs0inv2iVAHl6mS_Pm"
 DRIVE_XLSX_URL = f"https://drive.google.com/uc?export=download&id={FILE_ID}"
 
 # Secondo file (Tutti): extra metrics (Qt.A, FVM)
